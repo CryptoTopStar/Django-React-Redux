@@ -1,5 +1,5 @@
 import React from 'react';
-import { push } from 'react-router-redux';
+import { routeActions } from 'react-router-redux';
 import classNames from 'classnames';
 
 import { authLogoutAndRedirect } from '../../actions/auth';
@@ -14,11 +14,11 @@ class SideMenu extends React.Component {
     };
 
     goToIndex = () => {
-        this.props.dispatch(push('/'));
+        this.props.dispatch(routeActions.push('/'));
     };
 
     goToProtected = () => {
-        this.props.dispatch(push('/protected'));
+        this.props.dispatch(routeActions.push('/protected'));
     };
 
     logout = () => {

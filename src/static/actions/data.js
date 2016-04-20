@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import { push } from 'react-router-redux';
+import { routeActions } from 'react-router-redux';
 
 import { SERVER_URL } from '../utils/config';
 import { checkHttpStatus, parseJSON } from '../utils';
@@ -40,7 +40,7 @@ export function dataFetchProtectedData(token) {
             .catch(error => {
                 if (error.response.status === 401) {
                     dispatch(authLoginUserFailure(error));
-                    dispatch(push('/login'));
+                    dispatch(routeActions.push('/login'));
                 }
             });
     };

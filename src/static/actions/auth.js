@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import { push } from 'react-router-redux';
+import { routeActions } from 'react-router-redux';
 import jwtDecode from 'jwt-decode';
 
 import { SERVER_URL } from '../utils/config';
@@ -45,8 +45,7 @@ export function authLogout() {
 export function authLogoutAndRedirect() {
     return (dispatch, state) => {
         dispatch(authLogout());
-        dispatch(push('/login'));
-        return Promise.resolve(); // TOOD: we need  promise here because of tests, find a better way
+        dispatch(routeActions.push('/login'));
     };
 }
 
@@ -72,7 +71,7 @@ export function authLoginUser(email, password, redirect = '/') {
                     jwtDecode(response.token);
 
                     dispatch(authLoginUserSuccess(response.token));
-                    dispatch(push(redirect));
+                    dispatch(routeActions.push(redirect));
                 } catch (e) {
                     dispatch(authLoginUserFailure({
                         response: {

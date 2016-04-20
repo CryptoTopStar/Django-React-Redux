@@ -4,17 +4,15 @@ import ReactDOM from 'react-dom';
 import Root from './containers/Root/Root';
 import configureStore from './store/configureStore';
 import { authLoginUserSuccess } from './actions/auth';
-import { browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux'
+import { hashHistory } from 'react-router';
 
 
 const target = document.getElementById('root');
 
-const store = configureStore(window.__INITIAL_STATE__, browserHistory);
-const history = syncHistoryWithStore(browserHistory, store)
+const store = configureStore(window.__INITIAL_STATE__, hashHistory);
 
 const node = (
-    <Root store={store} history={history}/>
+    <Root store={store} history={hashHistory}/>
 );
 
 const token = sessionStorage.getItem('token');
