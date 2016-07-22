@@ -3,13 +3,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/auth';
 import classNames from 'classnames';
-import { push } from 'react-router-redux';
 
 class LoginView extends React.Component {
 
     static propTypes = {
-        dispatch: React.PropTypes.func.isRequired,
-        isAuthenticated: React.PropTypes.bool.isRequired,
         isAuthenticating: React.PropTypes.bool.isRequired,
         statusText: React.PropTypes.string,
         actions: React.PropTypes.object.isRequired,
@@ -25,12 +22,6 @@ class LoginView extends React.Component {
             password: '',
             redirectTo: redirectRoute
         };
-    }
-
-    componentWillMount() {
-        if (this.props.isAuthenticated) {
-            this.props.dispatch(push('/'));
-        }
     }
 
     login = (e) => {
@@ -121,7 +112,6 @@ class LoginView extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        isAuthenticated: state.auth.isAuthenticated,
         isAuthenticating: state.auth.isAuthenticating,
         statusText: state.auth.statusText
     };
@@ -129,7 +119,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        dispatch,
         actions: bindActionCreators(actionCreators, dispatch)
     };
 };
