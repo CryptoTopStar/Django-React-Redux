@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.views.generic import View
 from rest_framework import status
 from rest_framework.generics import GenericAPIView
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
@@ -23,7 +24,8 @@ class ProtectedDataView(GenericAPIView):
     """Return protected data  main page."""
 
     authentication_classes = (JSONWebTokenAuthentication,)
-
+    permission_classes = (IsAuthenticated,)
+    
     def get(self, request):
         """Process GET request and return protected data."""
 
