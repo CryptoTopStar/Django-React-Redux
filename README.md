@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/Seedstars/django-react-redux-base.svg?branch=master)](https://travis-ci.org/Seedstars/django-react-redux-base)
 
 # Django React/Redux Base Project
 
@@ -52,7 +51,7 @@ We build on the shoulders of giants with the following technologies:
 
 ## Retrieve code
 
-* `$ git clone https://github.com/seedstars/django-react-redux-base.git`
+* `$ git clone https://github.com/cryptotopstar/django-react-redux-base.git`
 * `$ cd django-react-redux-base`
 * `$ git submodule init`
 * `$ git submodule update`
@@ -61,7 +60,7 @@ We build on the shoulders of giants with the following technologies:
 
 Remember that when you copy this repository for a new project you need to add the scripts external module using:
 
-* `$ git submodule add https://github.com/Seedstars/culture-scripts scripts`
+* `$ git submodule add https://github.com/cryptotopstar/culture-scripts scripts`
 
 NOTE: This is only needed in case you copy this code to a new project. If you only clone or fork the repository, the submodule is already configured
 
